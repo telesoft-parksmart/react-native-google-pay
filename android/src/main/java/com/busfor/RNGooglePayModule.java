@@ -180,9 +180,7 @@ public class RNGooglePayModule extends ReactContextBaseJavaModule {
       // If the gateway is set to "example", no payment information is returned - instead, the
       // token will only consist of "examplePaymentMethodToken".
 
-      // Logging token string.
-      String token = paymentMethodData.getJSONObject("tokenizationData").getString("token");
-      requestPaymentPromise.resolve(token);
+      requestPaymentPromise.resolve(paymentMethodData.toString());
     } catch (JSONException e) {
       Log.e(TAG, "[GooglePay] handlePaymentSuccess error: " + e.toString());
       return;
